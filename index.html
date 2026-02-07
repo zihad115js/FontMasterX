@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="Ultimate Font Style Generator created by Zihad">
+    <title>FontMasterX</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
+    
+    <!-- ✅ 1. ADSTERRA SOCIAL BAR CODE -->
+    <script src="//shavingwitchcraft.com/10/7a/27/107a273dc3b2fc4d3160ca5551ed105a.js"></script>
+    
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --accent-cyan: #00f2ff;
+            --accent-pink: #bd00ff;
+            --accent-fire: #ff4d4d;
+            --glow-cyan: 0 0 20px rgba(0, 242, 255, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        body { 
+            background-color: var(--bg-dark);
+            color: var(--text-main); 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 🌌 ANIMATED BACKGROUND */
+        .bg-mesh {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(189, 0, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 242, 255, 0.08), transparent 25%);
+            animation: bgPulse 10s ease-in-out infinite alternate;
+        }
+        .bg-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        @keyframes bgPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .app { width: 100%; max-width: 600px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; position: relative; }
+
+        /* HEADER */
+        header { padding: 45px 20px 20px; text-align: center; position: relative; }
+        header h1 { 
+            font-weight: 900; font-size: 42px; letter-spacing: -1px; text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff 40%, #a5b4fc);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+            line-height: 1; margin-bottom: 8px;
+        }
+
+        .header-credit {
+            font-size: 13px; color: var(--text-sub); letter-spacing: 2px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,0.05); padding: 6px 16px; border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+        .zihad-name {
+            font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase;
+            background: linear-gradient(90deg, #ff00cc, #ff3366, #ffcc00);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 85, 0.4));
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* TABS */
+        .tabs-wrapper {
+            position: sticky; top: 10px; z-index: 100; padding: 0 15px; margin-bottom: 10px;
+        }
+        .tabs { 
+            display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; padding: 8px; 
+            background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px; border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab-btn { 
+            flex: 0 0 auto; padding: 10px 18px; 
+            background: transparent; border: 1px solid transparent; border-radius: 10px;
+            color: var(--text-sub); font-weight: 600; font-size: 13px; cursor: pointer; 
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tab-btn.active { 
+            background: rgba(255, 255, 255, 0.1); color: #fff; border-color: var(--glass-highlight);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.05);
+        }
+
+        /* CONTENT & INPUTS */
+        .content { display: none; padding: 15px; animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); padding-bottom: 80px; }
+        .content.active { display: block; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .input-box { 
+            padding: 4px; background: var(--glass-bg); border-radius: 24px; 
+            box-shadow: 0 0 0 1px var(--glass-border), inset 0 0 20px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;
+            backdrop-filter: blur(10px); transition: transform 0.3s;
+        }
+        .input-box:focus-within { transform: scale(1.01); box-shadow: 0 0 0 1px var(--accent-cyan), inset 0 0 20px rgba(0,0,0,0.5); }
+
+        textarea, input, select { 
+            width: 100%; background: transparent; border: none; color: #fff; 
+            padding: 20px; font-size: 17px; outline: none; resize: none; font-weight: 500;
+        }
+        textarea::placeholder, input::placeholder { color: rgba(255,255,255,0.3); }
+
+        .controls-row { display: flex; gap: 10px; padding: 0 15px 15px 15px; }
+
+        /* CARDS */
+        .card { 
+            background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid var(--glass-border); border-top-color: var(--glass-highlight); border-left-color: var(--glass-highlight);
+            padding: 22px; margin-bottom: 16px; border-radius: 20px; 
+            display: flex; flex-direction: column; gap: 14px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.05); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .meta { font-size: 11px; color: var(--accent-cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.9; }
+        .text { font-size: 20px; line-height: 1.6; color: #eee; white-space: pre-wrap; word-break: break-word; font-weight: 400; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .big-text-preview { font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 11px; white-space: pre; overflow-x: auto; padding: 20px; background: rgba(0,0,0,0.4); border-radius: 14px; border: 1px solid var(--glass-border); color: var(--accent-cyan); }
+        
+        /* BUTTONS */
+        .actions { display: flex; gap: 10px; }
+        .btn-icon { background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: var(--text-sub); width: 48px; height: 48px; border-radius: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 18px; transition: 0.2s; }
+        .fav.active { color: var(--accent-fire); border-color: var(--accent-fire); background: rgba(255, 77, 77, 0.1); animation: heartPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes heartPop { 50% { transform: scale(1.3); } }
+        
+        .copy-btn { flex-grow: 1; height: 48px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink)); border: none; color: #fff; font-weight: 800; padding: 0 24px; font-size: 14px; text-transform: uppercase; border-radius: 14px; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0, 242, 255, 0.25); cursor: pointer; text-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: 0.2s; }
+        .copy-btn:active { transform: scale(0.97); opacity: 0.9; }
+        .gen-btn { width: 100%; padding: 18px; margin-top: 10px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink)); color: #fff; border: none; border-radius: 18px; font-weight: 800; cursor: pointer; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px -5px rgba(189, 0, 255, 0.4); transition: transform 0.2s; }
+        .gen-btn:active { transform: scale(0.98); }
+
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .grid-card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 18px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
+        .grid-text { font-family: 'JetBrains Mono', monospace; font-size: 15px; }
+
+        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(50px); background: rgba(255,255,255,0.95); color: #000; padding: 14px 35px; border-radius: 50px; font-weight: 800; font-size: 14px; opacity: 0; pointer-events: none; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2000; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+        #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<div class="app">
+    <header>
+        <h1>FontMasterX</h1>
+        <div class="header-credit">Built By <span class="zihad-name">ZIHAD</span></div>
+    </header>
+
+    <div class="tabs-wrapper">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('styler', this)">Styler</button>
+            <button class="tab-btn" onclick="switchTab('bigtext', this)">Big Text</button>
+            <button class="tab-btn" onclick="switchTab('gamer', this)">Gamer</button>
+            <button class="tab-btn" onclick="switchTab('repeater', this)">Repeater</button>
+            <button class="tab-btn" onclick="switchTab('decor', this)">Decor</button>
+            <button class="tab-btn" onclick="switchTab('favorites', this)">Saved</button>
+        </div>
+    </div>
+
+    <div id="styler" class="content active">
+        <div class="input-box"><textarea id="inp" placeholder="Type something here..." rows="1" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea></div>
+        <div id="outStyler"></div>
+    </div>
+
+    <div id="bigtext" class="content">
+        <div class="input-box">
+            <input type="text" id="bigInp" placeholder="Enter Text (A-Z, 0-9)" maxlength="12">
+            <div class="controls-row">
+                <input type="text" id="bigEmo" placeholder="Ink (e.g. ▓)" value="▓" style="background:rgba(255,255,255,0.05); border-radius:12px; padding:12px;">
+                <input type="text" id="bigBg" placeholder="Bg (e.g. ░)" value="░" style="background:rgba(255,255,255,0.05); border-radius:12px; padding:12px;">
+            </div>
+        </div>
+        <button class="gen-btn" onclick="genBigText()">✨ Generate Art</button>
+        <div id="outBig" style="margin-top:25px;"></div>
+    </div>
+
+    <div id="gamer" class="content">
+        <div style="text-align:center; margin-bottom:20px; color:var(--text-sub); font-size:14px;">Tap below to generate unique pro names</div>
+        <button class="gen-btn" onclick="genGamerNames()">🎲 Randomize Names</button>
+        <div id="outGamer" style="margin-top:25px;"></div>
+    </div>
+
+    <div id="repeater" class="content">
+        <div class="input-box">
+            <input type="text" id="repTxt" placeholder="Text to repeat...">
+            <div class="controls-row">
+                <input type="number" id="repCnt" placeholder="Count" style="background:rgba(255,255,255,0.05); border-radius:12px; padding:12px;">
+                <select id="repSep" style="background:rgba(255,255,255,0.05); border-radius:12px; padding:12px; color:var(--text-sub);"><option value="">No Sep</option><option value=", ">, (Comma)</option><option value=" ">Space</option><option value=". ">Period</option></select>
+            </div>
+            <div style="padding: 0 20px 10px;"><label style="color:var(--text-sub); font-size:14px; font-weight:600; display:flex; align-items:center; gap:10px; cursor:pointer;"><input type="checkbox" id="repNewLine" style="width:20px; height:20px; accent-color:var(--accent-cyan);"> Start New Line</label></div>
+        </div>
+        <button class="gen-btn" onclick="generateRepeat()">💣 Bomb Repeat</button>
+        <div id="outRep" style="margin-top:25px;"></div>
+    </div>
+
+    <div id="decor" class="content"><div class="grid-container" id="outDecor"></div></div>
+    <div id="favorites" class="content"><div id="outFav"></div></div>
+</div>
+
+<div id="toast"><span>⚡</span> Copied!</div>
+
+<script>
+    // ✅ DIRECT LINKS (For Popups)
+    const AD_LINKS = ["https://shavingwitchcraft.com/qkddykzy?key=f6d6967e408d155acf64ad1fec94d3c2", "https://otieu.com/4/10561468"];
+    let linkIdx = 0;
+    
+    function triggerAd() { 
+        // 70% chance to open an ad when copying
+        if(Math.random() > 0.3) {
+            window.open(AD_LINKS[linkIdx], '_blank'); 
+            linkIdx = (linkIdx + 1) % AD_LINKS.length; 
+        }
+    }
+
+    const el = id => document.getElementById(id);
+    let favs = JSON.parse(localStorage.getItem('favs')) || [];
+    const normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    const baseFonts = [
+        {n:"Normal", m:[..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"]},
+        {n:"Serif Bold", m:[..."𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"]},
+        {n:"Italic Bold", m:[..."𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"]},
+        {n:"Script", m:[..."𝒶𝒷𝒸𝒹𝑒𝒻𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝐽𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵0123456789"]},
+        {n:"Script Bold", m:[..."𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"]},
+        {n:"Fraktur", m:[..."𝔞𝔟ℭ𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔲𝔳𝔴𝔵𝔶𝔷0123456789"]},
+        {n:"Double Struck", m:[..."𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"]},
+        {n:"Bubble", m:[..."ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ⓪①②③④⑤⑥⑦⑧⑨"]},
+        {n:"Small Caps", m:[..."ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ0123456789"]},
+        {n:"Strike", mark:"\u0336"}, {n:"Slash", mark:"\u0337"}, {n:"Underline", mark:"\u0332"}
+    ];
+
+    const decorations = [{p:"", s:""}, {p:"꧁ ", s:" ꧂"}, {p:"★ ", s:" ★"}, {p:"༺ ", s:" ༻"}, {p:"⚡ ", s:" ⚡"}, {p:"❝ ", s:" ❞"}, {p:"『 ", s:" 』"}, {p:"【 ", s:" 】"}, {p:"⚔️ ", s:" ⚔️"}, {p:"🔥 ", s:" 🔥"}, {p:"☠️ ", s:" ☠️"}, {p:"✨ ", s:" ✨"}];
+    const syms = ["(⁠•⁠‿⁠•⁠)", "◉⁠‿⁠◉", "｡⁠◕⁠‿⁠◕⁠｡", "(⁠.⁠ ⁠❛⁠ ⁠ᴗ⁠ ⁠❛⁠.⁠)", "(⁠θ⁠‿⁠θ⁠)", "ヽ(ヅ)ノ", "( ͡° ͜ʖ ͡°)", "OwO", "ﾟ⋆☂︎⋆ ˚", "♡˖ᡣ𐭩⊹", "⋆⸜✮₊˚", "❀⋆.ೃ࿔", "⟡˖ ⁺", "·͟͟͞͞➳❥", "✩➴⋆｡", "‧₊˚⌗☆", "˖୨୧₊❀", "☄︎⋰", "𖤐꙳𓏲", "꒱ ˖ׄ ★", "༘⋆ ˖°", "꒰𖤐꒱", "⁹𓍢。", "꒥꒷‧₊˚"];
+
+    function transform(txt, fnt) {
+        return [...txt].map(c => {
+            if(fnt.mark) return (c === ' ') ? ' ' : c + fnt.mark;
+            let i = normal.indexOf(c);
+            return (i > -1 && fnt.m && fnt.m[i]) ? fnt.m[i] : c;
+        }).join('');
+    }
+
+    function renderStyler() {
+        const txt = el('inp').value || "FontMasterX";
+        const container = el('outStyler'); container.innerHTML = "";
+        const frag = document.createDocumentFragment();
+        baseFonts.forEach(f => {
+            decorations.forEach((d, idx) => {
+                if(txt.length > 25 && idx > 4) return;
+                let stylized = transform(txt, f);
+                frag.appendChild(createCardElement(d.p + stylized + d.s, f.n + (d.p ? " + Deco" : "")));
+            });
+        });
+        container.appendChild(frag);
+    }
+
+    const bigMap = {'a':"010\n101\n111\n101\n101", 'b':"110\n101\n110\n101\n110", 'c':"011\n100\n100\n100\n011", 'd':"110\n101\n101\n101\n110", 'e':"111\n100\n111\n100\n111", 'f':"111\n100\n110\n100\n100", 'g':"011\n100\n100\n101\n011", 'h':"101\n101\n111\n101\n101", 'i':"111\n010\n010\n010\n111", 'j':"001\n001\n001\n101\n011", 'k':"101\n101\n110\n101\n101", 'l':"100\n100\n100\n100\n111", 'm':"101\n111\n101\n101\n101", 'n':"111\n101\n101\n101\n101", 'o':"010\n101\n101\n101\n010", 'p':"110\n101\n110\n100\n100", 'r':"110\n101\n110\n101\n101", 's':"011\n100\n010\n001\n110", 't':"111\n010\n010\n010\n010", 'u':"101\n101\n101\n101\n011", 'v':"101\n101\n101\n101\n010", 'w':"101\n101\n101\n111\n101", 'x':"101\n101\n010\n101\n101", 'y':"101\n101\n010\n010\n010", 'z':"111\n001\n010\n100\n111", ' ':"000\n000\n000\n000\n000", '0':"111\n101\n101\n101\n111", '1':"010\n110\n010\n010\n111"};
+    function genBigText() {
+        const txt = el('bigInp').value.toLowerCase(), emo = el('bigEmo').value || '▓', bg = el('bigBg').value || '░';
+        let res = "";
+        for(let i=0; i<5; i++) {
+            for(let char of txt) {
+                const pattern = bigMap[char] ? bigMap[char].split('\n')[i] : "000";
+                res += pattern.replace(/1/g, emo).replace(/0/g, bg) + bg;
+            }
+            res += "\n";
+        }
+        el('outBig').innerHTML = "";
+        const div = document.createElement('div'); div.className = 'card';
+        div.innerHTML = `<div class="card-header"><span class="meta">Preview</span></div><div class="big-text-preview">${res}</div><div class="actions" style="margin-top:10px"><button class="copy-btn" onclick="doCopy(\`${res.replace(/`/g, "\\`")}\`)">COPY ART</button></div>`;
+        el('outBig').appendChild(div);
+    }
+
+    // --- GAMER LOGIC ---
+    const gamerWords = ["Phoenix","Hydra","Vortex","Abyss","Titan","Reaper","Phantom","Spectre","Cobra","Viper","Zihad","Raven","Wolf","Storm","Thunder","Shadow","Ghost","Spirit","Soul","Legend","God","Devil","Demon","Angel","Beast","Savage","Noob","Pro","King","Queen","Prince","Lord","Master","Sensei","Ninja","Samurai","Viking","Knight","Warrior","Soldier","Sniper","Killer","Hunter","Slayer","Assassin","Spy","Agent","Hacker","Glitch","System","Bot","Cyborg","Mech","Alien","Void","Zero","Alpha","Omega","Delta","Sigma"];
+    const gamerAdjs = ["Dark","Light","Red","Blue","Black","White","Green","Gold","Silver","Iron","Steel","Cyber","Neon","Toxic","Nuclear","Cosmic","Solar","Lunar","Mystic","Magic","Cursed","Evil","Good","Sad","Mad","Crazy","Insane","Psycho","Dead","Undead","Immortal","Eternal","Ultimate","Supreme","Prime","Elite","High","Silent","Loud","Heavy"];
+    const gamerDecs = ["꧁", "꧂", "★", "☠️", "⚡", "♛", "✨", "⚔️", "❄️", "🔥", "🌪️", "🦅", "🐉", "༒", "•", "_"];
+    
+    function toLeet(str) { return str.replace(/[aAeEiIoOsStT]/g, m => ({'a':'4','A':'4','e':'3','E':'3','i':'1','I':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}[m])); }
+
+    function genGamerNames() {
+        const cont = el('outGamer'); cont.innerHTML = "";
+        const frag = document.createDocumentFragment();
+        for(let i=0; i<15; i++) {
+            let name = "";
+            const mode = Math.floor(Math.random() * 4);
+            const base = gamerWords[Math.floor(Math.random() * gamerWords.length)];
+            const adj = gamerAdjs[Math.floor(Math.random() * gamerAdjs.length)];
+            const dec1 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
+            const dec2 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
+
+            if (mode === 0) name = dec1 + base + (Math.random()>0.5 ? dec1 : dec2);
+            else if (mode === 1) name = toLeet(base);
+            else if (mode === 2) name = adj + base;
+            else { const tag = base.substring(0, 3).toUpperCase(); name = "[" + tag + "] " + adj; }
+            frag.appendChild(createCardElement(name, "Gamer Tag"));
+        }
+        cont.appendChild(frag);
+    }
+
+    function createCardElement(txt, title) {
+        const div = document.createElement('div'); div.className = 'card';
+        const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`");
+        const isFav = favs.includes(txt);
+        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShare('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`;
+        return div;
+    }
+
+    function generateRepeat() {
+        const t = el('repTxt').value, c = el('repCnt').value, nl = el('repNewLine').checked, sep = el('repSep').value;
+        if(!t || !c) return;
+        let res = ""; for(let i=0; i<c; i++) { res += t + (i == c-1 ? '' : sep); if(nl) res += "\n"; }
+        el('outRep').innerHTML = ""; el('outRep').appendChild(createCardElement(res.trim(), "Repeater Result"));
+    }
+
+    function createGridCard(txt) {
+        const div = document.createElement('div'); div.className = 'grid-card';
+        const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`");
+        div.innerHTML = `<span class="grid-text">${txt}</span><button class="btn-icon" style="width:36px; height:36px; flex:0 0 36px;" onclick="doCopy('${safe}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>`;
+        return div;
+    }
+
+    // ✅ REVISED COPY FUNCTION: COPY -> TOAST -> AD
+    async function doCopy(txt) { 
+        vibrate();
+        try { 
+            // 1. Wait for Copy
+            await navigator.clipboard.writeText(txt); 
+            // 2. Show Toast
+            showToast(); 
+            // 3. Trigger Ad after small delay (to let UI update)
+            setTimeout(() => {
+                triggerAd();
+            }, 300);
+        } catch(e) { 
+            // Fallback
+            const t = document.createElement("textarea"); 
+            t.value = txt; 
+            document.body.appendChild(t); 
+            t.select(); 
+            document.execCommand("copy"); 
+            t.remove(); 
+            showToast(); 
+            setTimeout(() => {
+                triggerAd();
+            }, 300);
+        } 
+    }
+    
+    async function doShare(txt) { vibrate(); if(navigator.share) { try { await navigator.share({ title: 'FontMasterX', text: txt }); } catch(e) {} } else { doCopy(txt); } }
+    
+    function doFav(btn, txt) { 
+        vibrate(); const idx = favs.indexOf(txt); const svg = btn.querySelector('svg');
+        if(idx > -1) { favs.splice(idx, 1); btn.classList.remove('active'); svg.setAttribute('fill', 'none'); } 
+        else { favs.push(txt); btn.classList.add('active'); svg.setAttribute('fill', 'currentColor'); } 
+        localStorage.setItem('favs', JSON.stringify(favs)); if(el('favorites').classList.contains('active')) renderFavs(); 
+    }
+    
+    function renderFavs() { const c = el('outFav'); c.innerHTML = ""; if(!favs.length) c.innerHTML = "<p style='text-align:center;color:var(--text-sub);margin-top:40px; font-weight:500;'>No favorites saved yet.</p>"; else favs.forEach(t => c.appendChild(createCardElement(t, "Saved Style"))); }
+    function switchTab(id, btn) { vibrate(); document.querySelectorAll('.content').forEach(d => d.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); el(id).classList.add('active'); btn.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); if(id === 'favorites') renderFavs(); }
+    function showToast() { const t = el('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000); }
+    function vibrate() { if(navigator.vibrate) navigator.vibrate(40); }
+
+    el('inp').addEventListener('input', renderStyler);
+    const decorFrag = document.createDocumentFragment();
+    syms.forEach(s => decorFrag.appendChild(createGridCard(s)));
+    el('outDecor').appendChild(decorFrag);
+    renderStyler();
+</script>
+
+<!-- ✅ 2. MONETAG SMART TAG CODE -->
+<script>(function(s){s.dataset.zone='10561567',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+</body>
+</html>
