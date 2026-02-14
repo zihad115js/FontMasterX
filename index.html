@@ -5,29 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#050505">
     <meta name="description" content="Ultimate Font Style Generator created by Zihad">
+    
+    <!-- PWA Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="FontMasterX">
     <title>FontMasterX</title>
     
-    <!-- ✅ FAVICON & APP ICON SETUP -->
-    <!-- ব্রাউজার ট্যাবের জন্য -->
+    <!-- Favicon & Icons -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="shortcut icon" href="logo.png">
-    
-    <!-- আইফোন/আইপ্যাড হোম স্ক্রিন আইকন -->
     <link rel="apple-touch-icon" href="logo.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="logo.png">
-
-    <!-- অ্যান্ড্রয়েড ম্যানিফেস্ট ফাইল লিংক -->
     <link rel="manifest" href="manifest.json">
 
-    <!-- Premium Fonts -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
     
-    <!-- ✅ 1. ADSTERRA SOCIAL BAR CODE -->
+    <!-- Adsterra -->
     <script src="//shavingwitchcraft.com/10/7a/27/107a273dc3b2fc4d3160ca5551ed105a.js"></script>
     
     <style>
@@ -41,7 +35,6 @@
             --accent-cyan: #00f2ff;
             --accent-pink: #bd00ff;
             --accent-fire: #ff4d4d;
-            --glow-cyan: 0 0 20px rgba(0, 242, 255, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -50,18 +43,13 @@
             background-color: var(--bg-dark);
             color: var(--text-main); 
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
+            display: flex; flex-direction: column; overflow-x: hidden; position: relative;
         }
 
-        /* 🌌 ANIMATED BACKGROUND */
         .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-            background: 
-                radial-gradient(circle at 15% 50%, rgba(189, 0, 255, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(0, 242, 255, 0.08), transparent 25%);
+            background: radial-gradient(circle at 15% 50%, rgba(189, 0, 255, 0.08), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(0, 242, 255, 0.08), transparent 25%);
             animation: bgPulse 10s ease-in-out infinite alternate;
         }
         .bg-grid {
@@ -72,16 +60,39 @@
             mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
             -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
-
-        @keyframes bgPulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 1; }
-        }
+        @keyframes bgPulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.1); opacity: 1; } }
 
         .app { width: 100%; max-width: 600px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; position: relative; }
 
-        /* HEADER (NO LOGO INSIDE) */
+        /* HEADER & INSTALL BUTTON */
         header { padding: 45px 20px 20px; text-align: center; position: relative; }
+        
+        /* ✅ Install Button Style */
+        #installBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            color: var(--accent-cyan);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: none; /* Hidden by default, shown via JS */
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        #installBtn:hover {
+            transform: scale(1.1);
+            background: rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
         header h1 { 
             font-weight: 900; font-size: 42px; letter-spacing: -1px; text-transform: uppercase;
             background: linear-gradient(to bottom, #fff 40%, #a5b4fc);
@@ -89,7 +100,6 @@
             filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
             line-height: 1; margin-bottom: 8px;
         }
-
         .header-credit {
             font-size: 13px; color: var(--text-sub); letter-spacing: 2px; font-weight: 600;
             display: inline-flex; align-items: center; gap: 6px;
@@ -106,69 +116,34 @@
         @keyframes shine { to { background-position: 200% center; } }
 
         /* TABS */
-        .tabs-wrapper {
-            position: sticky; top: 10px; z-index: 100; padding: 0 15px; margin-bottom: 10px;
-        }
-        .tabs { 
-            display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; padding: 8px; 
-            background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-radius: 16px; border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
+        .tabs-wrapper { position: sticky; top: 10px; z-index: 100; padding: 0 15px; margin-bottom: 10px; }
+        .tabs { display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; padding: 8px; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px); border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
         .tabs::-webkit-scrollbar { display: none; }
-        .tab-btn { 
-            flex: 0 0 auto; padding: 10px 18px; 
-            background: transparent; border: 1px solid transparent; border-radius: 10px;
-            color: var(--text-sub); font-weight: 600; font-size: 13px; cursor: pointer; 
-            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .tab-btn.active { 
-            background: rgba(255, 255, 255, 0.1); color: #fff; border-color: var(--glass-highlight);
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.05);
-        }
+        .tab-btn { flex: 0 0 auto; padding: 10px 18px; background: transparent; border: 1px solid transparent; border-radius: 10px; color: var(--text-sub); font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tab-btn.active { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: var(--glass-highlight); box-shadow: 0 0 15px rgba(0, 242, 255, 0.05); }
 
-        /* CONTENT & INPUTS */
+        /* CONTENT */
         .content { display: none; padding: 15px; animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); padding-bottom: 80px; }
         .content.active { display: block; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .input-box { 
-            padding: 4px; background: var(--glass-bg); border-radius: 24px; 
-            box-shadow: 0 0 0 1px var(--glass-border), inset 0 0 20px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;
-            backdrop-filter: blur(10px); transition: transform 0.3s;
-        }
+        .input-box { padding: 4px; background: var(--glass-bg); border-radius: 24px; box-shadow: 0 0 0 1px var(--glass-border), inset 0 0 20px rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; backdrop-filter: blur(10px); transition: transform 0.3s; }
         .input-box:focus-within { transform: scale(1.01); box-shadow: 0 0 0 1px var(--accent-cyan), inset 0 0 20px rgba(0,0,0,0.5); }
-
-        textarea, input, select { 
-            width: 100%; background: transparent; border: none; color: #fff; 
-            padding: 20px; font-size: 17px; outline: none; resize: none; font-weight: 500;
-        }
+        textarea, input, select { width: 100%; background: transparent; border: none; color: #fff; padding: 20px; font-size: 17px; outline: none; resize: none; font-weight: 500; }
         textarea::placeholder, input::placeholder { color: rgba(255,255,255,0.3); }
-
         .controls-row { display: flex; gap: 10px; padding: 0 15px 15px 15px; }
 
-        /* CARDS */
-        .card { 
-            background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-            border: 1px solid var(--glass-border); border-top-color: var(--glass-highlight); border-left-color: var(--glass-highlight);
-            padding: 22px; margin-bottom: 16px; border-radius: 20px; 
-            display: flex; flex-direction: column; gap: 14px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s;
-        }
+        .card { background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid var(--glass-border); border-top-color: var(--glass-highlight); border-left-color: var(--glass-highlight); padding: 22px; margin-bottom: 16px; border-radius: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s; }
         .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.05); }
-        
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
         .meta { font-size: 11px; color: var(--accent-cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.9; }
         .text { font-size: 20px; line-height: 1.6; color: #eee; white-space: pre-wrap; word-break: break-word; font-weight: 400; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .big-text-preview { font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 11px; white-space: pre; overflow-x: auto; padding: 20px; background: rgba(0,0,0,0.4); border-radius: 14px; border: 1px solid var(--glass-border); color: var(--accent-cyan); }
         
-        /* BUTTONS */
         .actions { display: flex; gap: 10px; }
         .btn-icon { background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: var(--text-sub); width: 48px; height: 48px; border-radius: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 18px; transition: 0.2s; }
         .fav.active { color: var(--accent-fire); border-color: var(--accent-fire); background: rgba(255, 77, 77, 0.1); animation: heartPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         @keyframes heartPop { 50% { transform: scale(1.3); } }
-        
         .copy-btn { flex-grow: 1; height: 48px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink)); border: none; color: #fff; font-weight: 800; padding: 0 24px; font-size: 14px; text-transform: uppercase; border-radius: 14px; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0, 242, 255, 0.25); cursor: pointer; text-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: 0.2s; }
         .copy-btn:active { transform: scale(0.97); opacity: 0.9; }
         .gen-btn { width: 100%; padding: 18px; margin-top: 10px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink)); color: #fff; border: none; border-radius: 18px; font-weight: 800; cursor: pointer; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px -5px rgba(189, 0, 255, 0.4); transition: transform 0.2s; }
@@ -193,7 +168,11 @@
 
 <div class="app">
     <header>
-        <!-- NO LOGO HERE, ONLY TEXT -->
+        <!-- ✅ INSTALL BUTTON (Top-Left) -->
+        <button id="installBtn" aria-label="Install App">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </button>
+
         <h1>FontMasterX</h1>
         <div class="header-credit">Built By <span class="zihad-name">ZIHAD</span></div>
     </header>
@@ -252,6 +231,32 @@
 <div id="toast"><span>⚡</span> Copied!</div>
 
 <script>
+    // ✅ PWA INSTALL LOGIC
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    // Browser checks if app is installable
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent default browser popup
+        e.preventDefault();
+        deferredPrompt = e;
+        // Show our custom button
+        installBtn.style.display = 'flex';
+    });
+
+    // Handle Button Click
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installBtn.style.display = 'none';
+            }
+            deferredPrompt = null;
+        }
+    });
+
+    // Rest of the App Logic...
     const AD_LINKS = ["https://shavingwitchcraft.com/qkddykzy?key=f6d6967e408d155acf64ad1fec94d3c2", "https://otieu.com/4/10561468"];
     let linkIdx = 0;
     function triggerAd() { if(Math.random() > 0.3) { window.open(AD_LINKS[linkIdx], '_blank'); linkIdx = (linkIdx + 1) % AD_LINKS.length; } }
