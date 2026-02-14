@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#050505">
     <meta name="description" content="Ultimate Font Style Generator created by Zihad">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FontMasterX">
     <title>FontMasterX</title>
     
+    <!-- ✅ FAVICON & APP ICON SETUP -->
+    <!-- ব্রাউজার ট্যাবের জন্য -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="logo.png">
+    
+    <!-- আইফোন/আইপ্যাড হোম স্ক্রিন আইকন -->
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="logo.png">
+
+    <!-- অ্যান্ড্রয়েড ম্যানিফেস্ট ফাইল লিংক -->
+    <link rel="manifest" href="manifest.json">
+
     <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
     
@@ -63,7 +80,7 @@
 
         .app { width: 100%; max-width: 600px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; position: relative; }
 
-        /* HEADER */
+        /* HEADER (NO LOGO INSIDE) */
         header { padding: 45px 20px 20px; text-align: center; position: relative; }
         header h1 { 
             font-weight: 900; font-size: 42px; letter-spacing: -1px; text-transform: uppercase;
@@ -176,6 +193,7 @@
 
 <div class="app">
     <header>
+        <!-- NO LOGO HERE, ONLY TEXT -->
         <h1>FontMasterX</h1>
         <div class="header-credit">Built By <span class="zihad-name">ZIHAD</span></div>
     </header>
@@ -234,17 +252,9 @@
 <div id="toast"><span>⚡</span> Copied!</div>
 
 <script>
-    // ✅ DIRECT LINKS (For Popups)
     const AD_LINKS = ["https://shavingwitchcraft.com/qkddykzy?key=f6d6967e408d155acf64ad1fec94d3c2", "https://otieu.com/4/10561468"];
     let linkIdx = 0;
-    
-    function triggerAd() { 
-        // 70% chance to open an ad when copying
-        if(Math.random() > 0.3) {
-            window.open(AD_LINKS[linkIdx], '_blank'); 
-            linkIdx = (linkIdx + 1) % AD_LINKS.length; 
-        }
-    }
+    function triggerAd() { if(Math.random() > 0.3) { window.open(AD_LINKS[linkIdx], '_blank'); linkIdx = (linkIdx + 1) % AD_LINKS.length; } }
 
     const el = id => document.getElementById(id);
     let favs = JSON.parse(localStorage.getItem('favs')) || [];
@@ -262,147 +272,56 @@
         {n:"Small Caps", m:[..."ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ0123456789"]},
         {n:"Strike", mark:"\u0336"}, {n:"Slash", mark:"\u0337"}, {n:"Underline", mark:"\u0332"}
     ];
-
     const decorations = [{p:"", s:""}, {p:"꧁ ", s:" ꧂"}, {p:"★ ", s:" ★"}, {p:"༺ ", s:" ༻"}, {p:"⚡ ", s:" ⚡"}, {p:"❝ ", s:" ❞"}, {p:"『 ", s:" 』"}, {p:"【 ", s:" 】"}, {p:"⚔️ ", s:" ⚔️"}, {p:"🔥 ", s:" 🔥"}, {p:"☠️ ", s:" ☠️"}, {p:"✨ ", s:" ✨"}];
     const syms = ["(⁠•⁠‿⁠•⁠)", "◉⁠‿⁠◉", "｡⁠◕⁠‿⁠◕⁠｡", "(⁠.⁠ ⁠❛⁠ ⁠ᴗ⁠ ⁠❛⁠.⁠)", "(⁠θ⁠‿⁠θ⁠)", "ヽ(ヅ)ノ", "( ͡° ͜ʖ ͡°)", "OwO", "ﾟ⋆☂︎⋆ ˚", "♡˖ᡣ𐭩⊹", "⋆⸜✮₊˚", "❀⋆.ೃ࿔", "⟡˖ ⁺", "·͟͟͞͞➳❥", "✩➴⋆｡", "‧₊˚⌗☆", "˖୨୧₊❀", "☄︎⋰", "𖤐꙳𓏲", "꒱ ˖ׄ ★", "༘⋆ ˖°", "꒰𖤐꒱", "⁹𓍢。", "꒥꒷‧₊˚"];
 
-    function transform(txt, fnt) {
-        return [...txt].map(c => {
-            if(fnt.mark) return (c === ' ') ? ' ' : c + fnt.mark;
-            let i = normal.indexOf(c);
-            return (i > -1 && fnt.m && fnt.m[i]) ? fnt.m[i] : c;
-        }).join('');
-    }
+    function transform(txt, fnt) { return [...txt].map(c => { if(fnt.mark) return (c === ' ') ? ' ' : c + fnt.mark; let i = normal.indexOf(c); return (i > -1 && fnt.m && fnt.m[i]) ? fnt.m[i] : c; }).join(''); }
 
     function renderStyler() {
-        const txt = el('inp').value || "FontMasterX";
-        const container = el('outStyler'); container.innerHTML = "";
-        const frag = document.createDocumentFragment();
-        baseFonts.forEach(f => {
-            decorations.forEach((d, idx) => {
-                if(txt.length > 25 && idx > 4) return;
-                let stylized = transform(txt, f);
-                frag.appendChild(createCardElement(d.p + stylized + d.s, f.n + (d.p ? " + Deco" : "")));
-            });
-        });
+        const txt = el('inp').value || "FontMasterX"; const container = el('outStyler'); container.innerHTML = ""; const frag = document.createDocumentFragment();
+        baseFonts.forEach(f => { decorations.forEach((d, idx) => { if(txt.length > 25 && idx > 4) return; let stylized = transform(txt, f); frag.appendChild(createCardElement(d.p + stylized + d.s, f.n + (d.p ? " + Deco" : ""))); }); });
         container.appendChild(frag);
     }
 
     const bigMap = {'a':"010\n101\n111\n101\n101", 'b':"110\n101\n110\n101\n110", 'c':"011\n100\n100\n100\n011", 'd':"110\n101\n101\n101\n110", 'e':"111\n100\n111\n100\n111", 'f':"111\n100\n110\n100\n100", 'g':"011\n100\n100\n101\n011", 'h':"101\n101\n111\n101\n101", 'i':"111\n010\n010\n010\n111", 'j':"001\n001\n001\n101\n011", 'k':"101\n101\n110\n101\n101", 'l':"100\n100\n100\n100\n111", 'm':"101\n111\n101\n101\n101", 'n':"111\n101\n101\n101\n101", 'o':"010\n101\n101\n101\n010", 'p':"110\n101\n110\n100\n100", 'r':"110\n101\n110\n101\n101", 's':"011\n100\n010\n001\n110", 't':"111\n010\n010\n010\n010", 'u':"101\n101\n101\n101\n011", 'v':"101\n101\n101\n101\n010", 'w':"101\n101\n101\n111\n101", 'x':"101\n101\n010\n101\n101", 'y':"101\n101\n010\n010\n010", 'z':"111\n001\n010\n100\n111", ' ':"000\n000\n000\n000\n000", '0':"111\n101\n101\n101\n111", '1':"010\n110\n010\n010\n111"};
     function genBigText() {
-        const txt = el('bigInp').value.toLowerCase(), emo = el('bigEmo').value || '▓', bg = el('bigBg').value || '░';
-        let res = "";
-        for(let i=0; i<5; i++) {
-            for(let char of txt) {
-                const pattern = bigMap[char] ? bigMap[char].split('\n')[i] : "000";
-                res += pattern.replace(/1/g, emo).replace(/0/g, bg) + bg;
-            }
-            res += "\n";
-        }
-        el('outBig').innerHTML = "";
-        const div = document.createElement('div'); div.className = 'card';
-        div.innerHTML = `<div class="card-header"><span class="meta">Preview</span></div><div class="big-text-preview">${res}</div><div class="actions" style="margin-top:10px"><button class="copy-btn" onclick="doCopy(\`${res.replace(/`/g, "\\`")}\`)">COPY ART</button></div>`;
-        el('outBig').appendChild(div);
+        const txt = el('bigInp').value.toLowerCase(), emo = el('bigEmo').value || '▓', bg = el('bigBg').value || '░'; let res = "";
+        for(let i=0; i<5; i++) { for(let char of txt) { const pattern = bigMap[char] ? bigMap[char].split('\n')[i] : "000"; res += pattern.replace(/1/g, emo).replace(/0/g, bg) + bg; } res += "\n"; }
+        el('outBig').innerHTML = ""; const div = document.createElement('div'); div.className = 'card'; div.innerHTML = `<div class="card-header"><span class="meta">Preview</span></div><div class="big-text-preview">${res}</div><div class="actions" style="margin-top:10px"><button class="copy-btn" onclick="doCopy(\`${res.replace(/`/g, "\\`")}\`)">COPY ART</button></div>`; el('outBig').appendChild(div);
     }
 
-    // --- GAMER LOGIC ---
     const gamerWords = ["Phoenix","Hydra","Vortex","Abyss","Titan","Reaper","Phantom","Spectre","Cobra","Viper","Zihad","Raven","Wolf","Storm","Thunder","Shadow","Ghost","Spirit","Soul","Legend","God","Devil","Demon","Angel","Beast","Savage","Noob","Pro","King","Queen","Prince","Lord","Master","Sensei","Ninja","Samurai","Viking","Knight","Warrior","Soldier","Sniper","Killer","Hunter","Slayer","Assassin","Spy","Agent","Hacker","Glitch","System","Bot","Cyborg","Mech","Alien","Void","Zero","Alpha","Omega","Delta","Sigma"];
     const gamerAdjs = ["Dark","Light","Red","Blue","Black","White","Green","Gold","Silver","Iron","Steel","Cyber","Neon","Toxic","Nuclear","Cosmic","Solar","Lunar","Mystic","Magic","Cursed","Evil","Good","Sad","Mad","Crazy","Insane","Psycho","Dead","Undead","Immortal","Eternal","Ultimate","Supreme","Prime","Elite","High","Silent","Loud","Heavy"];
     const gamerDecs = ["꧁", "꧂", "★", "☠️", "⚡", "♛", "✨", "⚔️", "❄️", "🔥", "🌪️", "🦅", "🐉", "༒", "•", "_"];
-    
     function toLeet(str) { return str.replace(/[aAeEiIoOsStT]/g, m => ({'a':'4','A':'4','e':'3','E':'3','i':'1','I':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}[m])); }
-
     function genGamerNames() {
-        const cont = el('outGamer'); cont.innerHTML = "";
-        const frag = document.createDocumentFragment();
+        const cont = el('outGamer'); cont.innerHTML = ""; const frag = document.createDocumentFragment();
         for(let i=0; i<15; i++) {
-            let name = "";
-            const mode = Math.floor(Math.random() * 4);
-            const base = gamerWords[Math.floor(Math.random() * gamerWords.length)];
-            const adj = gamerAdjs[Math.floor(Math.random() * gamerAdjs.length)];
-            const dec1 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
-            const dec2 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
-
-            if (mode === 0) name = dec1 + base + (Math.random()>0.5 ? dec1 : dec2);
-            else if (mode === 1) name = toLeet(base);
-            else if (mode === 2) name = adj + base;
-            else { const tag = base.substring(0, 3).toUpperCase(); name = "[" + tag + "] " + adj; }
+            let name = ""; const mode = Math.floor(Math.random() * 4); const base = gamerWords[Math.floor(Math.random() * gamerWords.length)]; const adj = gamerAdjs[Math.floor(Math.random() * gamerAdjs.length)]; const dec1 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)]; const dec2 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
+            if (mode === 0) name = dec1 + base + (Math.random()>0.5 ? dec1 : dec2); else if (mode === 1) name = toLeet(base); else if (mode === 2) name = adj + base; else { const tag = base.substring(0, 3).toUpperCase(); name = "[" + tag + "] " + adj; }
             frag.appendChild(createCardElement(name, "Gamer Tag"));
-        }
-        cont.appendChild(frag);
+        } cont.appendChild(frag);
     }
 
     function createCardElement(txt, title) {
-        const div = document.createElement('div'); div.className = 'card';
-        const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`");
-        const isFav = favs.includes(txt);
-        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShare('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`;
-        return div;
+        const div = document.createElement('div'); div.className = 'card'; const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); const isFav = favs.includes(txt);
+        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShare('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`; return div;
     }
 
-    function generateRepeat() {
-        const t = el('repTxt').value, c = el('repCnt').value, nl = el('repNewLine').checked, sep = el('repSep').value;
-        if(!t || !c) return;
-        let res = ""; for(let i=0; i<c; i++) { res += t + (i == c-1 ? '' : sep); if(nl) res += "\n"; }
-        el('outRep').innerHTML = ""; el('outRep').appendChild(createCardElement(res.trim(), "Repeater Result"));
-    }
+    function generateRepeat() { const t = el('repTxt').value, c = el('repCnt').value, nl = el('repNewLine').checked, sep = el('repSep').value; if(!t || !c) return; let res = ""; for(let i=0; i<c; i++) { res += t + (i == c-1 ? '' : sep); if(nl) res += "\n"; } el('outRep').innerHTML = ""; el('outRep').appendChild(createCardElement(res.trim(), "Repeater Result")); }
+    function createGridCard(txt) { const div = document.createElement('div'); div.className = 'grid-card'; const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); div.innerHTML = `<span class="grid-text">${txt}</span><button class="btn-icon" style="width:36px; height:36px; flex:0 0 36px;" onclick="doCopy('${safe}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>`; return div; }
 
-    function createGridCard(txt) {
-        const div = document.createElement('div'); div.className = 'grid-card';
-        const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`");
-        div.innerHTML = `<span class="grid-text">${txt}</span><button class="btn-icon" style="width:36px; height:36px; flex:0 0 36px;" onclick="doCopy('${safe}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>`;
-        return div;
-    }
-
-    // ✅ REVISED COPY FUNCTION: COPY -> TOAST -> AD
-    async function doCopy(txt) { 
-        vibrate();
-        try { 
-            // 1. Wait for Copy
-            await navigator.clipboard.writeText(txt); 
-            // 2. Show Toast
-            showToast(); 
-            // 3. Trigger Ad after small delay (to let UI update)
-            setTimeout(() => {
-                triggerAd();
-            }, 300);
-        } catch(e) { 
-            // Fallback
-            const t = document.createElement("textarea"); 
-            t.value = txt; 
-            document.body.appendChild(t); 
-            t.select(); 
-            document.execCommand("copy"); 
-            t.remove(); 
-            showToast(); 
-            setTimeout(() => {
-                triggerAd();
-            }, 300);
-        } 
-    }
-    
+    async function doCopy(txt) { vibrate(); try { await navigator.clipboard.writeText(txt); showToast(); setTimeout(() => { triggerAd(); }, 500); } catch(e) { const t = document.createElement("textarea"); t.value = txt; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); showToast(); setTimeout(() => { triggerAd(); }, 500); } }
     async function doShare(txt) { vibrate(); if(navigator.share) { try { await navigator.share({ title: 'FontMasterX', text: txt }); } catch(e) {} } else { doCopy(txt); } }
-    
-    function doFav(btn, txt) { 
-        vibrate(); const idx = favs.indexOf(txt); const svg = btn.querySelector('svg');
-        if(idx > -1) { favs.splice(idx, 1); btn.classList.remove('active'); svg.setAttribute('fill', 'none'); } 
-        else { favs.push(txt); btn.classList.add('active'); svg.setAttribute('fill', 'currentColor'); } 
-        localStorage.setItem('favs', JSON.stringify(favs)); if(el('favorites').classList.contains('active')) renderFavs(); 
-    }
-    
+    function doFav(btn, txt) { vibrate(); const idx = favs.indexOf(txt); const svg = btn.querySelector('svg'); if(idx > -1) { favs.splice(idx, 1); btn.classList.remove('active'); svg.setAttribute('fill', 'none'); } else { favs.push(txt); btn.classList.add('active'); svg.setAttribute('fill', 'currentColor'); } localStorage.setItem('favs', JSON.stringify(favs)); if(el('favorites').classList.contains('active')) renderFavs(); }
     function renderFavs() { const c = el('outFav'); c.innerHTML = ""; if(!favs.length) c.innerHTML = "<p style='text-align:center;color:var(--text-sub);margin-top:40px; font-weight:500;'>No favorites saved yet.</p>"; else favs.forEach(t => c.appendChild(createCardElement(t, "Saved Style"))); }
     function switchTab(id, btn) { vibrate(); document.querySelectorAll('.content').forEach(d => d.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); el(id).classList.add('active'); btn.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); if(id === 'favorites') renderFavs(); }
     function showToast() { const t = el('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000); }
     function vibrate() { if(navigator.vibrate) navigator.vibrate(40); }
 
-    el('inp').addEventListener('input', renderStyler);
-    const decorFrag = document.createDocumentFragment();
-    syms.forEach(s => decorFrag.appendChild(createGridCard(s)));
-    el('outDecor').appendChild(decorFrag);
-    renderStyler();
+    el('inp').addEventListener('input', renderStyler); const decorFrag = document.createDocumentFragment(); syms.forEach(s => decorFrag.appendChild(createGridCard(s))); el('outDecor').appendChild(decorFrag); renderStyler();
 </script>
 
-<!-- ✅ 2. MONETAG SMART TAG CODE -->
 <script>(function(s){s.dataset.zone='10561567',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
 </body>
