@@ -246,10 +246,9 @@
         }
     });
 
-    // Rest of the App Logic (expanded, ad fix)
+    // Rest of the App Logic (expanded, ad fix, share credit)
     const AD_LINKS = ["https://shavingwitchcraft.com/qkddykzy?key=f6d6967e408d155acf64ad1fec94d3c2", "https://otieu.com/4/10561468"];
     let linkIdx = 0;
-    // Direct ad open – now called immediately after copy (user gesture)
     function triggerAd() { 
         if(Math.random() > 0.3) { 
             window.open(AD_LINKS[linkIdx], '_blank'); 
@@ -402,7 +401,7 @@
         const div = document.createElement('div'); div.className = 'card'; 
         const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); 
         const isFav = favs.includes(txt);
-        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShare('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`; 
+        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShareWithCredit('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`; 
         return div;
     }
 
@@ -431,7 +430,7 @@
         try { 
             await navigator.clipboard.writeText(txt); 
             showToast(); 
-            triggerAd(); // direct call, no setTimeout
+            triggerAd(); 
         } catch(e) { 
             const t = document.createElement("textarea"); 
             t.value = txt; 
@@ -443,12 +442,33 @@
             triggerAd(); 
         } 
     }
-    
-    async function doShare(txt) { 
-        vibrate(); 
-        if(navigator.share) { 
-            try { await navigator.share({ title: 'FontMasterX', text: txt }); } catch(e) {} 
-        } else { doCopy(txt); } 
+
+    // ✦ SHARE WITH CREDIT LINE (added per user request) ✦
+    async function doShareWithCredit(originalTxt) {
+        const credit = "\n\nCreated by fontmasterx.vercel.app";
+        const txt = originalTxt + credit;
+        vibrate();
+        if (navigator.share) {
+            try {
+                await navigator.share({ title: 'FontMasterX', text: txt });
+            } catch (e) {}
+        } else {
+            // fallback: copy with credit
+            try {
+                await navigator.clipboard.writeText(txt);
+                showToast();
+                triggerAd();
+            } catch (e) {
+                const t = document.createElement("textarea");
+                t.value = txt;
+                document.body.appendChild(t);
+                t.select();
+                document.execCommand("copy");
+                t.remove();
+                showToast();
+                triggerAd();
+            }
+        }
     }
     
     function doFav(btn, txt) { 
