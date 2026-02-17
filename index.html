@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#050505">
-    <meta name="description" content="Ultimate Font Style Generator created by Zihad">
+    <meta name="description" content="Ultimate Font Style Generator – now with even more fonts, deco & gamer tags. Created by Zihad">
     
     <!-- PWA Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="FontMasterX">
-    <title>FontMasterX</title>
+    <title>FontMasterX 🔥 mega</title>
     
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -21,7 +21,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
     
-    <!-- Adsterra -->
+    <!-- Adsterra (keep untouched) -->
     <script src="//shavingwitchcraft.com/10/7a/27/107a273dc3b2fc4d3160ca5551ed105a.js"></script>
     
     <style>
@@ -67,7 +67,6 @@
         /* HEADER & INSTALL BUTTON */
         header { padding: 45px 20px 20px; text-align: center; position: relative; }
         
-        /* ✅ Install Button Style */
         #installBtn {
             position: absolute;
             top: 20px;
@@ -78,7 +77,7 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            display: none; /* Hidden by default, shown via JS */
+            display: none;
             justify-content: center;
             align-items: center;
             cursor: pointer;
@@ -120,7 +119,7 @@
         .tabs { display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; padding: 8px; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px); border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
         .tabs::-webkit-scrollbar { display: none; }
         .tab-btn { flex: 0 0 auto; padding: 10px 18px; background: transparent; border: 1px solid transparent; border-radius: 10px; color: var(--text-sub); font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
-        .tab-btn.active { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: var(--glass-highlight); box-shadow: 0 0 15px rgba(0, 242, 255, 0.05); }
+        .tab-btn.active { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: var(--glass-highlight); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); }
 
         /* CONTENT */
         .content { display: none; padding: 15px; animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); padding-bottom: 80px; }
@@ -133,8 +132,8 @@
         textarea::placeholder, input::placeholder { color: rgba(255,255,255,0.3); }
         .controls-row { display: flex; gap: 10px; padding: 0 15px 15px 15px; }
 
-        .card { background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid var(--glass-border); border-top-color: var(--glass-highlight); border-left-color: var(--glass-highlight); padding: 22px; margin-bottom: 16px; border-radius: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s; }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.05); }
+        .card { background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid var(--glass-border); border-top-color: var(--glass-highlight); border-left-color: var(--glass-highlight); padding: 22px; margin-bottom: 16px; border-radius: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15); }
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
         .meta { font-size: 11px; color: var(--accent-cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.9; }
         .text { font-size: 20px; line-height: 1.6; color: #eee; white-space: pre-wrap; word-break: break-word; font-weight: 400; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
@@ -168,7 +167,6 @@
 
 <div class="app">
     <header>
-        <!-- ✅ INSTALL BUTTON (Top-Left) -->
         <button id="installBtn" aria-label="Install App">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         </button>
@@ -206,8 +204,8 @@
     </div>
 
     <div id="gamer" class="content">
-        <div style="text-align:center; margin-bottom:20px; color:var(--text-sub); font-size:14px;">Tap below to generate unique pro names</div>
-        <button class="gen-btn" onclick="genGamerNames()">🎲 Randomize Names</button>
+        <div style="text-align:center; margin-bottom:20px; color:var(--text-sub); font-size:14px;">⚡ 20+ fresh pro tags ⚡</div>
+        <button class="gen-btn" onclick="genGamerNames()">🎮 Generate 20 names</button>
         <div id="outGamer" style="margin-top:25px;"></div>
     </div>
 
@@ -231,40 +229,39 @@
 <div id="toast"><span>⚡</span> Copied!</div>
 
 <script>
-    // ✅ PWA INSTALL LOGIC
+    // ✅ PWA INSTALL (unchanged)
     let deferredPrompt;
     const installBtn = document.getElementById('installBtn');
-
-    // Browser checks if app is installable
     window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent default browser popup
         e.preventDefault();
         deferredPrompt = e;
-        // Show our custom button
         installBtn.style.display = 'flex';
     });
-
-    // Handle Button Click
     installBtn.addEventListener('click', async () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                installBtn.style.display = 'none';
-            }
+            if (outcome === 'accepted') installBtn.style.display = 'none';
             deferredPrompt = null;
         }
     });
 
-    // Rest of the App Logic...
+    // Rest of the App Logic (expanded, ad fix)
     const AD_LINKS = ["https://shavingwitchcraft.com/qkddykzy?key=f6d6967e408d155acf64ad1fec94d3c2", "https://otieu.com/4/10561468"];
     let linkIdx = 0;
-    function triggerAd() { if(Math.random() > 0.3) { window.open(AD_LINKS[linkIdx], '_blank'); linkIdx = (linkIdx + 1) % AD_LINKS.length; } }
+    // Direct ad open – now called immediately after copy (user gesture)
+    function triggerAd() { 
+        if(Math.random() > 0.3) { 
+            window.open(AD_LINKS[linkIdx], '_blank'); 
+            linkIdx = (linkIdx + 1) % AD_LINKS.length; 
+        } 
+    }
 
     const el = id => document.getElementById(id);
     let favs = JSON.parse(localStorage.getItem('favs')) || [];
     const normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
+    // ========== EVEN MORE FONTS ==========
     const baseFonts = [
         {n:"Normal", m:[..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"]},
         {n:"Serif Bold", m:[..."𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"]},
@@ -275,16 +272,93 @@
         {n:"Double Struck", m:[..."𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"]},
         {n:"Bubble", m:[..."ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ⓪①②③④⑤⑥⑦⑧⑨"]},
         {n:"Small Caps", m:[..."ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ0123456789"]},
-        {n:"Strike", mark:"\u0336"}, {n:"Slash", mark:"\u0337"}, {n:"Underline", mark:"\u0332"}
+        {n:"Sans", m:[..."𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫"]},
+        {n:"Sans Bold", m:[..."𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"]},
+        {n:"Sans Italic", m:[..."𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡0123456789"]},
+        {n:"Sans Bold Italic", m:[..."𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕0123456789"]},
+        {n:"Monospace", m:[..."𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"]},
+        // ✦ NEW FONTS (just added) ✦
+        {n:"Fullwidth", m:[..."ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ０１２３４５６７８９"]},
+        {n:"Squared", m:[..."🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉0123456789"]}, // only A-Z squared
+        {n:"Negative Squared", m:[..."🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉0123456789"]},
+        {n:"Parenthesized", m:[..."⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵⑴⑵⑶⑷⑸⑹⑺⑻⑼"]},
+        {n:"Circled Negative", m:[..."🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩⓿❶❷❸❹❺❻❼❽❾"]},
+        {n:"Strike", mark:"\u0336"},
+        {n:"Slash", mark:"\u0337"},
+        {n:"Underline", mark:"\u0332"},
+        {n:"Overline", mark:"\u0305"},
+        {n:"Double Underline", mark:"\u0333"},
+        {n:"Dotted", mark:"\u0307"}
     ];
-    const decorations = [{p:"", s:""}, {p:"꧁ ", s:" ꧂"}, {p:"★ ", s:" ★"}, {p:"༺ ", s:" ༻"}, {p:"⚡ ", s:" ⚡"}, {p:"❝ ", s:" ❞"}, {p:"『 ", s:" 』"}, {p:"【 ", s:" 】"}, {p:"⚔️ ", s:" ⚔️"}, {p:"🔥 ", s:" 🔥"}, {p:"☠️ ", s:" ☠️"}, {p:"✨ ", s:" ✨"}];
-    const syms = ["(⁠•⁠‿⁠•⁠)", "◉⁠‿⁠◉", "｡⁠◕⁠‿⁠◕⁠｡", "(⁠.⁠ ⁠❛⁠ ⁠ᴗ⁠ ⁠❛⁠.⁠)", "(⁠θ⁠‿⁠θ⁠)", "ヽ(ヅ)ノ", "( ͡° ͜ʖ ͡°)", "OwO", "ﾟ⋆☂︎⋆ ˚", "♡˖ᡣ𐭩⊹", "⋆⸜✮₊˚", "❀⋆.ೃ࿔", "⟡˖ ⁺", "·͟͟͞͞➳❥", "✩➴⋆｡", "‧₊˚⌗☆", "˖୨୧₊❀", "☄︎⋰", "𖤐꙳𓏲", "꒱ ˖ׄ ★", "༘⋆ ˖°", "꒰𖤐꒱", "⁹𓍢。", "꒥꒷‧₊˚"];
 
-    function transform(txt, fnt) { return [...txt].map(c => { if(fnt.mark) return (c === ' ') ? ' ' : c + fnt.mark; let i = normal.indexOf(c); return (i > -1 && fnt.m && fnt.m[i]) ? fnt.m[i] : c; }).join(''); }
+    // ✦ MORE DECORATIONS (prefix/suffix) ✦
+    const decorations = [
+        {p:"", s:""},
+        {p:"꧁ ", s:" ꧂"},
+        {p:"★ ", s:" ★"},
+        {p:"༺ ", s:" ༻"},
+        {p:"⚡ ", s:" ⚡"},
+        {p:"❝ ", s:" ❞"},
+        {p:"『 ", s:" 』"},
+        {p:"【 ", s:" 】"},
+        {p:"⚔️ ", s:" ⚔️"},
+        {p:"🔥 ", s:" 🔥"},
+        {p:"☠️ ", s:" ☠️"},
+        {p:"✨ ", s:" ✨"},
+        {p:"𓆩 ", s:" 𓆪"},
+        {p:"☾ ", s:" ☽"},
+        {p:"⎛ ", s:" ⎞"},
+        {p:"⌜ ", s:" ⌝"},
+        {p:"⟦ ", s:" ⟧"},
+        {p:"⸢ ", s:" ⸥"},
+        {p:"⸤ ", s:" ⸥"},
+        // even more
+        {p:"꧁༺ ", s:" ༻꧂"},
+        {p:"𖤐 ", s:" 𖤐"},
+        {p:"꩜ ", s:" ꩜"},
+        {p:"⁘ ", s:" ⁘"},
+        {p:"༄ ", s:" ༄"},
+        {p:"꧅ ", s:" ꧅"}
+    ];
+
+    // ✦ EXTRA EMOJIS for decor grid (expanded) ✦
+    const syms = [
+        "(⁠•⁠‿⁠•⁠)", "◉⁠‿⁠◉", "｡⁠◕⁠‿⁠◕⁠｡", "(⁠.⁠ ⁠❛⁠ ⁠ᴗ⁠ ⁠❛⁠.⁠)", "(⁠θ⁠‿⁠θ⁠)", "ヽ(ヅ)ノ", "( ͡° ͜ʖ ͡°)", "OwO", "ﾟ⋆☂︎⋆ ˚", "♡˖ᡣ𐭩⊹", "⋆⸜✮₊˚", "❀⋆.ೃ࿔", "⟡˖ ⁺", "·͟͟͞͞➳❥", "✩➴⋆｡", "‧₊˚⌗☆", "˖୨୧₊❀", "☄︎⋰", "𖤐꙳𓏲", "꒱ ˖ׄ ★", "༘⋆ ˖°", "꒰𖤐꒱", "⁹𓍢。", "꒥꒷‧₊˚",
+        "¯\\_(ツ)_/¯", "(◕‿◕)", "(•_•)", "⌐■_■", "ᕙ(⇀‸↼‶)ᕗ", "(ﾉ◕ヮ◕)ﾉ", "❤️‍🔥", "🥷🏽", "(☞ﾟ∀ﾟ)☞", "☜(ﾟヮﾟ☜)", "⛓️‍💥", "🔥🔥", "💀✨"
+    ];
+
+    // ✦ GAMER EXPANSIONS (even more words) ✦
+    const gamerWords = [
+        "Phoenix","Hydra","Vortex","Abyss","Titan","Reaper","Phantom","Spectre","Cobra","Viper","Zihad","Raven","Wolf","Storm","Thunder","Shadow","Ghost","Spirit","Soul","Legend","God","Devil","Demon","Angel","Beast","Savage","Noob","Pro","King","Queen","Prince","Lord","Master","Sensei","Ninja","Samurai","Viking","Knight","Warrior","Soldier","Sniper","Killer","Hunter","Slayer","Assassin","Spy","Agent","Hacker","Glitch","System","Bot","Cyborg","Mech","Alien","Void","Zero","Alpha","Omega","Delta","Sigma","Eclipse","Ember","Frost","Nova","Orion","Zeus","Karma","Rogue","Wraith","Cypher","Crimson","Cobalt","Onyx","Neon","Cosmic","Astro","Cyber","Venom","Rage","Blaze","Fury","Magnus","Odin","Thor","Loki"
+    ];
+    const gamerAdjs = [
+        "Dark","Light","Red","Blue","Black","White","Green","Gold","Silver","Iron","Steel","Cyber","Neon","Toxic","Nuclear","Cosmic","Solar","Lunar","Mystic","Magic","Cursed","Evil","Good","Sad","Mad","Crazy","Insane","Psycho","Dead","Undead","Immortal","Eternal","Ultimate","Supreme","Prime","Elite","High","Silent","Loud","Heavy","Savage","Hidden","Silent","Atomic","Fallen","Raging","Shadow","Blazing","Frozen","Venomous","Ruthless"
+    ];
+    const gamerDecs = [
+        "꧁", "꧂", "★", "☠️", "⚡", "♛", "✨", "⚔️", "❄️", "🔥", "🌪️", "🦅", "🐉", "༒", "•", "_", "⎛", "⎞", "x", "X", "⧸", "⧹", "『", "』", "⌜", "⌝"
+    ];
+
+    function toLeet(str) { return str.replace(/[aAeEiIoOsStT]/g, m => ({'a':'4','A':'4','e':'3','E':'3','i':'1','I':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}[m])); }
+
+    function transform(txt, fnt) { 
+        return [...txt].map(c => { 
+            if(fnt.mark) return (c === ' ') ? ' ' : c + fnt.mark; 
+            let i = normal.indexOf(c); 
+            return (i > -1 && fnt.m && fnt.m[i]) ? fnt.m[i] : c; 
+        }).join(''); 
+    }
 
     function renderStyler() {
-        const txt = el('inp').value || "FontMasterX"; const container = el('outStyler'); container.innerHTML = ""; const frag = document.createDocumentFragment();
-        baseFonts.forEach(f => { decorations.forEach((d, idx) => { if(txt.length > 25 && idx > 4) return; let stylized = transform(txt, f); frag.appendChild(createCardElement(d.p + stylized + d.s, f.n + (d.p ? " + Deco" : ""))); }); });
+        const txt = el('inp').value || "FontMasterX"; 
+        const container = el('outStyler'); container.innerHTML = ""; 
+        const frag = document.createDocumentFragment();
+        baseFonts.forEach(f => { 
+            decorations.forEach((d, idx) => { 
+                if(txt.length > 25 && idx > 4) return; 
+                let stylized = transform(txt, f); 
+                frag.appendChild(createCardElement(d.p + stylized + d.s, f.n + (d.p ? " + Deco" : ""))); 
+            }); 
+        });
         container.appendChild(frag);
     }
 
@@ -295,38 +369,139 @@
         el('outBig').innerHTML = ""; const div = document.createElement('div'); div.className = 'card'; div.innerHTML = `<div class="card-header"><span class="meta">Preview</span></div><div class="big-text-preview">${res}</div><div class="actions" style="margin-top:10px"><button class="copy-btn" onclick="doCopy(\`${res.replace(/`/g, "\\`")}\`)">COPY ART</button></div>`; el('outBig').appendChild(div);
     }
 
-    const gamerWords = ["Phoenix","Hydra","Vortex","Abyss","Titan","Reaper","Phantom","Spectre","Cobra","Viper","Zihad","Raven","Wolf","Storm","Thunder","Shadow","Ghost","Spirit","Soul","Legend","God","Devil","Demon","Angel","Beast","Savage","Noob","Pro","King","Queen","Prince","Lord","Master","Sensei","Ninja","Samurai","Viking","Knight","Warrior","Soldier","Sniper","Killer","Hunter","Slayer","Assassin","Spy","Agent","Hacker","Glitch","System","Bot","Cyborg","Mech","Alien","Void","Zero","Alpha","Omega","Delta","Sigma"];
-    const gamerAdjs = ["Dark","Light","Red","Blue","Black","White","Green","Gold","Silver","Iron","Steel","Cyber","Neon","Toxic","Nuclear","Cosmic","Solar","Lunar","Mystic","Magic","Cursed","Evil","Good","Sad","Mad","Crazy","Insane","Psycho","Dead","Undead","Immortal","Eternal","Ultimate","Supreme","Prime","Elite","High","Silent","Loud","Heavy"];
-    const gamerDecs = ["꧁", "꧂", "★", "☠️", "⚡", "♛", "✨", "⚔️", "❄️", "🔥", "🌪️", "🦅", "🐉", "༒", "•", "_"];
-    function toLeet(str) { return str.replace(/[aAeEiIoOsStT]/g, m => ({'a':'4','A':'4','e':'3','E':'3','i':'1','I':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}[m])); }
+    // ✦ ENHANCED GAMER GENERATOR (20 items, more variety) ✦
     function genGamerNames() {
         const cont = el('outGamer'); cont.innerHTML = ""; const frag = document.createDocumentFragment();
-        for(let i=0; i<15; i++) {
-            let name = ""; const mode = Math.floor(Math.random() * 4); const base = gamerWords[Math.floor(Math.random() * gamerWords.length)]; const adj = gamerAdjs[Math.floor(Math.random() * gamerAdjs.length)]; const dec1 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)]; const dec2 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
-            if (mode === 0) name = dec1 + base + (Math.random()>0.5 ? dec1 : dec2); else if (mode === 1) name = toLeet(base); else if (mode === 2) name = adj + base; else { const tag = base.substring(0, 3).toUpperCase(); name = "[" + tag + "] " + adj; }
-            frag.appendChild(createCardElement(name, "Gamer Tag"));
-        } cont.appendChild(frag);
+        for(let i=0; i<20; i++) {
+            let name = "";
+            const mode = Math.floor(Math.random() * 8);
+            const base = gamerWords[Math.floor(Math.random() * gamerWords.length)];
+            const adj = gamerAdjs[Math.floor(Math.random() * gamerAdjs.length)];
+            const dec1 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
+            const dec2 = gamerDecs[Math.floor(Math.random() * gamerDecs.length)];
+            const num = Math.floor(Math.random() * 999) + 1;
+
+            switch(mode) {
+                case 0: name = dec1 + base + (Math.random()>0.5 ? dec1 : dec2); break;
+                case 1: name = toLeet(base); break;
+                case 2: name = adj + base; break;
+                case 3: name = "[" + base.substring(0,3).toUpperCase() + "] " + adj; break;
+                case 4: name = "Xx_" + base + (Math.random()>0.5 ? "_" + adj : "") + "_xX"; break;
+                case 5: name = base + (Math.random()>0.3 ? num : (Math.random()>0.5 ? "69" : "420")); break;
+                case 6: name = toLeet(adj) + "_" + toLeet(base); break;
+                case 7: name = dec1 + " " + adj + " " + base + " " + dec2; break;
+                default: name = base + adj;
+            }
+            if (!name) name = "PHANTOM";
+            frag.appendChild(createCardElement(name, "Gamer Tag " + (i+1)));
+        }
+        cont.appendChild(frag);
     }
 
     function createCardElement(txt, title) {
-        const div = document.createElement('div'); div.className = 'card'; const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); const isFav = favs.includes(txt);
-        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShare('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`; return div;
+        const div = document.createElement('div'); div.className = 'card'; 
+        const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); 
+        const isFav = favs.includes(txt);
+        div.innerHTML = `<div class="card-header"><span class="meta">${title}</span><button class="btn-icon fav ${isFav?'active':''}" onclick="doFav(this, '${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button></div><div class="text">${txt.replace(/</g, "&lt;")}</div><div class="actions"><button class="copy-btn" onclick="doCopy('${safe}')">Copy</button><button class="btn-icon" onclick="doShare('${safe}')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button></div>`; 
+        return div;
     }
 
-    function generateRepeat() { const t = el('repTxt').value, c = el('repCnt').value, nl = el('repNewLine').checked, sep = el('repSep').value; if(!t || !c) return; let res = ""; for(let i=0; i<c; i++) { res += t + (i == c-1 ? '' : sep); if(nl) res += "\n"; } el('outRep').innerHTML = ""; el('outRep').appendChild(createCardElement(res.trim(), "Repeater Result")); }
-    function createGridCard(txt) { const div = document.createElement('div'); div.className = 'grid-card'; const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); div.innerHTML = `<span class="grid-text">${txt}</span><button class="btn-icon" style="width:36px; height:36px; flex:0 0 36px;" onclick="doCopy('${safe}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>`; return div; }
+    function generateRepeat() { 
+        const t = el('repTxt').value, c = el('repCnt').value, nl = el('repNewLine').checked, sep = el('repSep').value; 
+        if(!t || !c) return; 
+        let res = ""; 
+        for(let i=0; i<c; i++) { 
+            res += t + (i == c-1 ? '' : sep); 
+            if(nl) res += "\n"; 
+        } 
+        el('outRep').innerHTML = ""; 
+        el('outRep').appendChild(createCardElement(res.trim(), "Repeater Result")); 
+    }
+    
+    function createGridCard(txt) { 
+        const div = document.createElement('div'); div.className = 'grid-card'; 
+        const safe = txt.replace(/'/g, "&apos;").replace(/`/g, "\\`"); 
+        div.innerHTML = `<span class="grid-text">${txt}</span><button class="btn-icon" style="width:36px; height:36px; flex:0 0 36px;" onclick="doCopy('${safe}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>`; 
+        return div; 
+    }
 
-    async function doCopy(txt) { vibrate(); try { await navigator.clipboard.writeText(txt); showToast(); setTimeout(() => { triggerAd(); }, 500); } catch(e) { const t = document.createElement("textarea"); t.value = txt; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); showToast(); setTimeout(() => { triggerAd(); }, 500); } }
-    async function doShare(txt) { vibrate(); if(navigator.share) { try { await navigator.share({ title: 'FontMasterX', text: txt }); } catch(e) {} } else { doCopy(txt); } }
-    function doFav(btn, txt) { vibrate(); const idx = favs.indexOf(txt); const svg = btn.querySelector('svg'); if(idx > -1) { favs.splice(idx, 1); btn.classList.remove('active'); svg.setAttribute('fill', 'none'); } else { favs.push(txt); btn.classList.add('active'); svg.setAttribute('fill', 'currentColor'); } localStorage.setItem('favs', JSON.stringify(favs)); if(el('favorites').classList.contains('active')) renderFavs(); }
-    function renderFavs() { const c = el('outFav'); c.innerHTML = ""; if(!favs.length) c.innerHTML = "<p style='text-align:center;color:var(--text-sub);margin-top:40px; font-weight:500;'>No favorites saved yet.</p>"; else favs.forEach(t => c.appendChild(createCardElement(t, "Saved Style"))); }
-    function switchTab(id, btn) { vibrate(); document.querySelectorAll('.content').forEach(d => d.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); el(id).classList.add('active'); btn.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); if(id === 'favorites') renderFavs(); }
-    function showToast() { const t = el('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000); }
+    // ✦ FIXED AD OPENING: called directly after copy (user gesture) ✦
+    async function doCopy(txt) { 
+        vibrate(); 
+        try { 
+            await navigator.clipboard.writeText(txt); 
+            showToast(); 
+            triggerAd(); // direct call, no setTimeout
+        } catch(e) { 
+            const t = document.createElement("textarea"); 
+            t.value = txt; 
+            document.body.appendChild(t); 
+            t.select(); 
+            document.execCommand("copy"); 
+            t.remove(); 
+            showToast(); 
+            triggerAd(); 
+        } 
+    }
+    
+    async function doShare(txt) { 
+        vibrate(); 
+        if(navigator.share) { 
+            try { await navigator.share({ title: 'FontMasterX', text: txt }); } catch(e) {} 
+        } else { doCopy(txt); } 
+    }
+    
+    function doFav(btn, txt) { 
+        vibrate(); 
+        const idx = favs.indexOf(txt); 
+        const svg = btn.querySelector('svg'); 
+        if(idx > -1) { 
+            favs.splice(idx, 1); 
+            btn.classList.remove('active'); 
+            svg.setAttribute('fill', 'none'); 
+        } else { 
+            favs.push(txt); 
+            btn.classList.add('active'); 
+            svg.setAttribute('fill', 'currentColor'); 
+        } 
+        localStorage.setItem('favs', JSON.stringify(favs)); 
+        if(el('favorites').classList.contains('active')) renderFavs(); 
+    }
+    
+    function renderFavs() { 
+        const c = el('outFav'); 
+        c.innerHTML = ""; 
+        if(!favs.length) c.innerHTML = "<p style='text-align:center;color:var(--text-sub);margin-top:40px; font-weight:500;'>No favorites saved yet.</p>"; 
+        else favs.forEach(t => c.appendChild(createCardElement(t, "Saved Style"))); 
+    }
+    
+    function switchTab(id, btn) { 
+        vibrate(); 
+        document.querySelectorAll('.content').forEach(d => d.classList.remove('active')); 
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); 
+        el(id).classList.add('active'); 
+        btn.classList.add('active'); 
+        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        if(id === 'favorites') renderFavs(); 
+    }
+    
+    function showToast() { 
+        const t = el('toast'); 
+        t.classList.add('show'); 
+        setTimeout(()=>t.classList.remove('show'), 2000); 
+    }
+    
     function vibrate() { if(navigator.vibrate) navigator.vibrate(40); }
 
-    el('inp').addEventListener('input', renderStyler); const decorFrag = document.createDocumentFragment(); syms.forEach(s => decorFrag.appendChild(createGridCard(s))); el('outDecor').appendChild(decorFrag); renderStyler();
+    // init
+    el('inp').addEventListener('input', renderStyler); 
+    const decorFrag = document.createDocumentFragment(); 
+    syms.forEach(s => decorFrag.appendChild(createGridCard(s))); 
+    el('outDecor').appendChild(decorFrag); 
+    renderStyler();
 </script>
 
+<!-- Adsterra (keep untouched) -->
 <script>(function(s){s.dataset.zone='10561567',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
 </body>
